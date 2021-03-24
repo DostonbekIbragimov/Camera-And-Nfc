@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CardCameraScan</string>
+    <string name="back">Back</string>
+    <string name="camera_error">CAMERA ERROR</string>
+
+    <string name="ad_progressBar_mess">Iltimos kartani qimirlatmang!</string>
+    <string name="snack_doNotMoveCard">Kartani qimirlatmang, Qayta urining</string>
+    <string name="snack_lockedNfcCard">NFC bloklangan</string>
+    <string name="snack_unknownEmv">Noma\'lum karta</string>
+    <string name="ad_nfcTurnOn_title">NFC o\'chirilgan</string>
+    <string name="ad_nfcTurnOn_message">NFC modulini yoqishingiz kerak!</string>
+    <string name="ad_nfcTurnOn_pos">Yoqish</string>
+    <string name="ad_nfcTurnOn_neg">Rad etish</string>
+    <string name="ad_progressBar_title">Yuklanmoqda</string>
+    <string name="snack_unknown_bank_card">Bu noma\'lum karta</string>
+    <string name="repoUrl" translatable="false">https://stackoverflow.com/</string>
+</resources>
