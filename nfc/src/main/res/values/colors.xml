@@ -9,4 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#81c7f0</color>
     <color name="colorPrimaryDark">#60b4e5</color>
+
+    <color name="tag_tip">#FF505050</color>
+    <color name="tag_spliter">#FFC5C5C5</color>
+    <color name="tag_action">#FF888888</color>
+    <color name="tag_h1">#FF505050</color>
+    <color name="tag_h2">@color/accent_material_light</color>
+    <color name="tag_h3">#FF505050</color>
+    <color name="tag_text">#FF111111</color>
+    <color name="tag_lab">#FF3F3F3F</color>
 </resources>

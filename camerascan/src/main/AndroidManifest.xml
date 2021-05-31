@@ -3,7 +3,9 @@
     package="uz.ssd.sdk.camerascan">
 
     <application>
-        <activity android:name=".CardScanActivity"></activity>
+        <activity android:name=".CardScanActivity">
+
+        </activity>
     </application>
 
 </manifest>
