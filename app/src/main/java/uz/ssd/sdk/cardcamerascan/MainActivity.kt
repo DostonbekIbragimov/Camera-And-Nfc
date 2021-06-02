@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         nfc.setOnClickListener {
-            startActivity(Intent(this, NfcActivity::class.java))
+            startActivity(Intent(this, CardScanActivity::class.java))
         }
 
        /* camera.setOnClickListener {

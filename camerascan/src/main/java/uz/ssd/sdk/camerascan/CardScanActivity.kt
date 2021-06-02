@@ -27,10 +27,6 @@ class CardScanActivity : AppCompatActivity() {
             closePage()
         }
 
-        returnBack?.setOnClickListener {
-            closePage()
-        }
-
     }
 
     private fun closePage() {
@@ -51,6 +47,33 @@ class CardScanActivity : AppCompatActivity() {
 
     private fun initScanner() {
         val surfaceView = surface
+        surfaceView.setOnDetectedListener(this, object : ScannerListener {
+            override fun onDetected(detections: String) {
+                var cardNumber = ""
+                var cardExpire = ""
+                cardNumber = basicCard(detections)
+                    ?: (uzCard(detections) ?: (humoCard(detections) ?: (unionCard(detections)
+                        ?: (attoCard(detections) ?: ""))))
+                if (cardNumber.length > 5) {
+                    cardExpire = expireDate(detections) ?: ""
+                    if (cardExpire.isEmpty()) cardExpire = expireDate(detections) ?: ""
+                    val returnIntent = Intent()
+                    Toast.makeText(
+                        this@CardScanActivity,
+                        "card_number = $cardNumber\ncard_expire = $cardExpire",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    returnIntent.putExtra("card_number", cardNumber.replace(" ", ""))
+                    returnIntent.putExtra("card_expire", cardExpire)
+                    setResult(Activity.RESULT_OK, returnIntent)
+                    finish()
+                }
+            }
+            override fun onStateChanged(state: String, i: Int) {
+                Log.e("TTT", "state = $state")
+            }
+        })
+        /*
         scanner = Scanner(this, surfaceView, object : ScannerListener {
             override fun onDetected(detections: String) {
                 var cardNumber = ""
@@ -67,7 +90,7 @@ class CardScanActivity : AppCompatActivity() {
                         "card_number = $cardNumber\ncard_expire = $cardExpire",
                         Toast.LENGTH_SHORT
                     ).show()
-                    returnIntent.putExtra("card_number", cardNumber)
+                    returnIntent.putExtra("card_number", cardNumber.replace(" ", ""))
                     returnIntent.putExtra("card_expire", cardExpire)
                     setResult(Activity.RESULT_OK, returnIntent)
                     finish()
@@ -77,7 +100,7 @@ class CardScanActivity : AppCompatActivity() {
             override fun onStateChanged(state: String, i: Int) {
                 Log.e("TTT", "state = $state")
             }
-        })
+        })*/
     }
 
     /* private fun openAlertDialog(cardNumber: String, cardExpire: String) {
