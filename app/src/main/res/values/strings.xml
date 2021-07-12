@@ -91,7 +91,7 @@
 	<br />Newest version and source code can be found at <a href="https://github.com/cachewind/NfcReader/">github.com/cachewind/NfcReader</a>
 	]]>
     </string>
-
+    <string name="msg_nfcon">Nfc ni yoqamizami?</string>
 
 
 </resources>
