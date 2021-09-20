@@ -51,3 +51,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+fun main() {
+    var c = 0;
+    for(i in 0 until 100000){
+        if(i % 11 == 0){
+            if(sum(i)){
+                c ++
+                println(i)
+            }
+        }
+    }
+    println(c)
+}
+
+fun sum(n: Int): Boolean {
+    var sum = 0
+    val s = n.toString()
+
+    for (i in s.indices) {
+        sum += (s[i] - '0').toInt()
+    }
+    return sum == 11
+}
