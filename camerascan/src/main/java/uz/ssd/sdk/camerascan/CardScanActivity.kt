@@ -58,11 +58,8 @@ class CardScanActivity : AppCompatActivity() {
                     cardExpire = expireDate(detections) ?: ""
                     if (cardExpire.isEmpty()) cardExpire = expireDate(detections) ?: ""
                     val returnIntent = Intent()
-                    Toast.makeText(
-                        this@CardScanActivity,
-                        "card_number = $cardNumber\ncard_expire = $cardExpire",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Log.d(CardScanActivity::class.java.toString(),
+                        "card_number = $cardNumber\ncard_expire = $cardExpire")
                     returnIntent.putExtra("card_number", cardNumber.replace(" ", ""))
                     returnIntent.putExtra("card_expire", cardExpire)
                     setResult(Activity.RESULT_OK, returnIntent)
@@ -163,7 +160,8 @@ class CardScanActivity : AppCompatActivity() {
     }
 
     private fun expireDate(detections: String): String? {
-        val regex = "^(0[1-9]|1[0-2])([ ]?)\\/([ ]?)([0-9]{2})\$".toRegex()
+//        val regex = "^(0[1-9]|1[0-2])([ ]?)\\/([ ]?)([0-9]{2})\$".toRegex()
+        val regex = "\\d{2}\\/\\d{2}".toRegex()
         val matcher = regex.find(detections)
         return if (matcher != null) {
             val cardExpire = detections.substring(matcher.range.first, matcher.range.last + 1)
