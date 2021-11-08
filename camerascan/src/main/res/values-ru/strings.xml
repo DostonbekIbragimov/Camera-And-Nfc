@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CardCameraScan</string>
-    <string name="back" translatable="false">Back</string>
-    <string name="camera_error" translatable="false">CAMERA ERROR</string>
     <string name="fixed_card">Поместите карту</string>
 </resources>
