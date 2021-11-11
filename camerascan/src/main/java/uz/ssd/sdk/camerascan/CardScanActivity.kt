@@ -57,15 +57,20 @@ class CardScanActivity : AppCompatActivity() {
                 if (cardNumber.length > 5) {
                     cardExpire = expireDate(detections) ?: ""
                     if (cardExpire.isEmpty()) cardExpire = expireDate(detections) ?: ""
-                    val returnIntent = Intent()
-                    Log.d(CardScanActivity::class.java.toString(),
-                        "card_number = $cardNumber\ncard_expire = $cardExpire")
-                    returnIntent.putExtra("card_number", cardNumber.replace(" ", ""))
-                    returnIntent.putExtra("card_expire", cardExpire)
-                    setResult(Activity.RESULT_OK, returnIntent)
-                    finish()
+                    if (cardExpire.isNotEmpty()) {
+                        val returnIntent = Intent ()
+                        Log.d(
+                            CardScanActivity::class.java.toString(),
+                            "card_number = $cardNumber\ncard_expire = $cardExpire"
+                        )
+                        returnIntent.putExtra("card_number", cardNumber.replace(" ", ""))
+                        returnIntent.putExtra("card_expire", cardExpire)
+                        setResult(Activity.RESULT_OK, returnIntent)
+                        finish()
+                    }
                 }
             }
+
             override fun onStateChanged(state: String, i: Int) {
                 Log.e("TTT", "state = $state")
             }
